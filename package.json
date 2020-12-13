@@ -4,6 +4,9 @@
   "description": "The exam wants to test your knowledge with cron jobs and large datasets.",
   "main": "generator.js",
   "scripts": {
+    "parse": "jq -s '.' example.jsonl > output.json && node ./src/utils/fillDb.js",
+    "start": "node ./src/index.js",
+    "start:local": "nodemon -w ./src -w ./src/index.js --exec 'DEBUG=app* npm start'",
     "download-dynamic-prices": "node ./generator.js"
   },
   "keywords": [
@@ -11,5 +14,22 @@
     "cronjobs"
   ],
   "author": "dimitar@doublero.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "mongoose": "^5.11.7",
+    "node-cron": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^2.0.6"
+  }
 }
