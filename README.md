@@ -162,3 +162,29 @@ last 30 days, 90 days, 180 days and 365 days. The output format must be:
   }
 }
 ```
+### Instruction for solution
+
+You need local instance of mongo DB for test the solution 
+Connection path can be edited in the .env file
+
+For run the parser
+
+```
+npm run parse
+```
+
+It fill DB by the orders
+
+For ran application 
+```
+npm run start:local
+```
+The cron job will executing every 5 minuets and generate the new report 
+
+For getting latest report use http://localhost:3007/reports/latest-report route
+
+Helper routes
+For count orders in db use GET http://localhost:3007/countOrders route
+For manually generate report use GET http://localhost:3007/generateReport route
+
+
